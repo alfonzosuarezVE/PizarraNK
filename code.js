@@ -11,6 +11,13 @@ var hora_transferencia = aleatorio(0,24)
 var ownSection = document.getElementById("ownSection");
 var sendButton = document.getElementById("sendButton");
 
+var resetButton = document.getElementById("reload");
+resetButton.addEventListener("click", reset)
+
+function reset()
+{
+    location.reload()
+}
 
 sendButton.addEventListener("click", sendMoney);
 
