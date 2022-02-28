@@ -3,16 +3,19 @@ var cuentaCliente = true;
 var bancoCliente = false;
 var saldoCliente;
 var cuentaDestino = true;
-var bancoDestino = true;
+var bancoDestino = false;
 
-var saldo = 100000;
 
-var hora_transferencia = aleatorio(0,24)
+
+var saldo = 1000000;
+var saldoCliente = document.getElementById("moneyToSend");
+
+var hora_transferencia = aleatorio(0,24);
 var ownSection = document.getElementById("ownSection");
 var sendButton = document.getElementById("sendButton");
 
 var resetButton = document.getElementById("reload");
-resetButton.addEventListener("click", reset)
+resetButton.addEventListener("click", reset);
 
 function reset()
 {
@@ -25,34 +28,29 @@ sendButton.addEventListener("click", sendMoney);
 
 function sendMoney()
 {
-    console.log(hora_transferencia);
     if(hora_transferencia >= 9 && hora_transferencia <= 12 || hora_transferencia >= 15 && hora_transferencia <= 20) 
-    {
-        if(cuentaCliente == true && cuentaDestino == true)
-        {
-            if(bancoCliente == true && bancoDestino == true)
+    { 
+         if(cuentaCliente && cuentaDestino)
+         {
+            if(bancoCliente && bancoDestino)
             {
-                console.log("transaccion exitosa")
+                comision = 0;
+                console.log(saldo);
             }
-            else if (bancoCliente || bancoDestino)
+            else
             {
-                var comision = 100;
-                if(saldo >= (saldo + comision))
-                {
-                    console.log("transaccion exitosa")
-                }
-                else
-                {
-                   alert("Saldo Insuficiente. Codigo 51")
-                }
+                comision = 100;
+                saldo -= comision;
+                console.log(saldo)
             }
             
             
-        }
-        else
-        {
-            console.log("alert");
-        }
+           
+
+
+
+         }
+         else(console.log("Por favor verifique sus cuentas"))
     
     }
     else
@@ -72,4 +70,15 @@ function aleatorio(min, maxi)
     var resultado;
     resultado = Math.floor(Math.random() * (maxi - min + 1)) + min
     return resultado;
+}
+
+dineroEntregado = []
+
+class transaccion
+{
+    constructor(cantidad)
+    {
+        this.cantidad = cantidad;
+        
+    }
 }
