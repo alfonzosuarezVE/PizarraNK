@@ -36,19 +36,15 @@ function sendMoney()
             {
                 comision = 0;
                 console.log(saldo);
+                ownSection.innerHTML = "Transaccion exitosa por " + saldo;
             }
             else
             {
                 comision = 100;
                 saldo -= comision;
-                console.log(saldo)
+                ownSection.innerHTML = "Transaccion exitosa por " + saldo;
             }
             
-            
-           
-
-
-
          }
          else(console.log("Por favor verifique sus cuentas"))
     
